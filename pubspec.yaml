@@ -62,7 +62,7 @@ flutter:
      - assets/Splash screen.png
      - assets/icons/Lock.png
      - assets/icons/mail.png
-     - assets/Pola Books.png
+     - assets/polabooks.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
