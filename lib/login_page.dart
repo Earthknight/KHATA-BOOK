@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:khatabook/createacc.dart';
+import 'createacc.dart';
+import 'main.dart';
 // ignore: use_key_in_widget_constructors
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,16 +21,19 @@ class Login extends StatelessWidget {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                        margin: EdgeInsets.only(top: 60, bottom: 0, left: 90),
-                        height: 140,
-                        width: 180,
-                        child: Image.asset(
-                          'assets/polabooks.png',
-                          fit: BoxFit.fill,
-                        )),
+                    Expanded(
+                      child: Container(
+                        color: const Color(0xFF032188),
+                        alignment: Alignment.center,
+                          height: 140,
+                          width: double.infinity,
+                          child: Image.asset(
+                            'assets/polabooks.png',
+                            fit: BoxFit.fill,
+                          )),
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -101,7 +111,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      right: 260,
+                      right: 240,
                       child: Container(
                         width: 45,
                         height: 20,
@@ -209,24 +219,29 @@ class Login extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                Container(
-                  width: 300,
-                  height: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: const Color(0xFF032188),
-                      borderRadius:
-                      const BorderRadius.all(Radius.circular(40)),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1,
-                      )),
-                  child: const Text('Login',style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Inter',
-                  ),),
+                InkWell(
+                  child: Container(
+                    width: 300,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF032188),
+                        borderRadius:
+                        const BorderRadius.all(Radius.circular(40)),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        )),
+                    child: const Text('Login',style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Inter',
+                    ),),
+                  ),
+                  onTap: (){
+                    Navigator.pushNamed(context, '/personal');
+                  },
                 ),
                 const SizedBox(
                   height: 25,
@@ -243,14 +258,20 @@ class Login extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  child: const Text('Create a new account',style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF032188),
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Inter',
-                  ),),
+                InkWell(
+                  child: Container(
+                    width: 200,
+                    alignment: Alignment.center,
+                    child: const Text('Create a new account',style: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFF032188),
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Inter',
+                    ),),
+                  ),
+                  onTap: (){
+                    Navigator.pushNamed(context, '/createacc');
+                  },
                 ),
               ],
             ),
